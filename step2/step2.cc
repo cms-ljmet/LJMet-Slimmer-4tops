@@ -516,9 +516,9 @@ void step2::Loop()
    int nbjetsCut = 2;
      
    for (Long64_t jentry=0; jentry<nentries;jentry++) {
-    // if (jentry==378670) continue; // TTToSemiLepton_HT500Njet9_TuneCP5_PSweights_13TeV-powheg-pythia8_ttcc
+    // if (jentry==378670) continue; // 02162021 run Run2017 nominal, TTToSemiLepton_HT500Njet9_TuneCP5_PSweights_13TeV-powheg-pythia8_ttcc
      //if (jentry==277547) continue; // run 10072020
-     //if (jentry==275502) continue; // run 032721
+     if (jentry==275502) continue; // run 032721
      Long64_t ientry = LoadTree(jentry);
      if (ientry < 0) break;
      nb = inputTree->GetEntry(jentry);   nbytes += nb;
