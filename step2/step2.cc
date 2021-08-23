@@ -285,7 +285,7 @@ void step2::Loop()
    TBranch *b_btagCSV2DWeight_HTnj   = outputTree->Branch("btagCSV2DWeight_HTnj", &btagCSV2DWeight_HTnj, "btagCSV2DWeight_HTnj/F");
 	
 	
-	   TBranch *b_btagCSV2DWeight_HTnj_HFup         = outputTree->Branch("btagCSV2DWeight_HTnj_HFup",         &btagCSV2DWeight_HTnj_HFup,         "btagCSV2DWeight_HTnj_HFup/F");         
+   TBranch *b_btagCSV2DWeight_HTnj_HFup         = outputTree->Branch("btagCSV2DWeight_HTnj_HFup",         &btagCSV2DWeight_HTnj_HFup,         "btagCSV2DWeight_HTnj_HFup/F");         
    TBranch *b_btagCSV2DWeight_HTnj_HFdn         = outputTree->Branch("btagCSV2DWeight_HTnj_HFdn",         &btagCSV2DWeight_HTnj_HFdn,         "btagCSV2DWeight_HTnj_HFdn/F");         
    TBranch *b_btagCSV2DWeight_HTnj_LFup         = outputTree->Branch("btagCSV2DWeight_HTnj_LFup",         &btagCSV2DWeight_HTnj_LFup,         "btagCSV2DWeight_HTnj_LFup/F");         
    TBranch *b_btagCSV2DWeight_HTnj_LFdn         = outputTree->Branch("btagCSV2DWeight_HTnj_LFdn",         &btagCSV2DWeight_HTnj_LFdn,         "btagCSV2DWeight_HTnj_LFdn/F");         
@@ -540,14 +540,18 @@ void step2::Loop()
    for (Long64_t jentry=0; jentry<nentries;jentry++) {
     // if (jentry==378670) continue; // TTToSemiLepton_HT500Njet9_TuneCP5_PSweights_13TeV-powheg-pythia8_ttcc
      //if (jentry==277547) continue; // run 10072020
-     //if (jentry==275502) continue; // run 032721
+    // cout<<inputFileName_<<" "<<inputFileName_.Contains("FWLJMET102X_1lep2017_Oct2019_4t_051321_step1hadds/nominal/TTToSemiLepton_HT500Njet9_TuneCP5_PSweights_13TeV-powheg-pythia8_ttcc_hadd")<<"\n";
+     if (jentry==275502 && 
+        inputFileName_.Contains("1lep2017") &&
+        inputFileName_.Contains("nominal") &&
+        inputFileName_.Contains("TTToSemiLepton_HT500Njet9_TuneCP5_PSweights_13TeV-powheg-pythia8_ttcc_hadd")) continue; // run 032721
      Long64_t ientry = LoadTree(jentry);
      if (ientry < 0) break;
      nb = inputTree->GetEntry(jentry);   nbytes += nb;
      if (Cut(ientry) != 1) continue;
 
    //  if (jentry > 5000 ) break;  // debug
-  //   cout << "\n start event # " << jentry << endl;
+    // cout << "\n start event # " << jentry << endl;
      if(jentry % 1000 == 0) std::cout<<"Completed "<<jentry<<" out of "<<nentries<<" events"<<std::endl;      
 
    //  if(NJetsCSVwithSF_MultiLepCalc<nbjetsCut && 
@@ -633,24 +637,24 @@ void step2::Loop()
     // initialize -1 if not calculated 
     btagCSV2DWeight_HTnj = -1.;
 	   
-	b_btagCSV2DWeight_HTnj_HFup = -1.;
-	b_btagCSV2DWeight_HTnj_HFdn = -1.;
-	b_btagCSV2DWeight_HTnj_LFup = -1.;
-	b_btagCSV2DWeight_HTnj_LFdn = -1.;
-	b_btagCSV2DWeight_HTnj_jesup = -1.;
-	b_btagCSV2DWeight_HTnj_jesdn = -1.;
-	b_btagCSV2DWeight_HTnj_hfstats1up = -1.;
-	b_btagCSV2DWeight_HTnj_hfstats1dn = -1.;
-	b_btagCSV2DWeight_HTnj_hfstats2up = -1.;
-	b_btagCSV2DWeight_HTnj_hfstats2dn = -1.;
-	b_btagCSV2DWeight_HTnj_cferr1up = -1.;
-	b_btagCSV2DWeight_HTnj_cferr1dn = -1.;
-	b_btagCSV2DWeight_HTnj_cferr2up = -1.;
-	b_btagCSV2DWeight_HTnj_cferr2dn = -1.;
-	b_btagCSV2DWeight_HTnj_lfstats1up = -1.;
-	b_btagCSV2DWeight_HTnj_lfstats1dn = -1.;
-	b_btagCSV2DWeight_HTnj_lfstats2up = -1.;
-	b_btagCSV2DWeight_HTnj_lfstats2dn = -1.;
+	  btagCSV2DWeight_HTnj_HFup = -1.;
+	  btagCSV2DWeight_HTnj_HFdn = -1.;
+	  btagCSV2DWeight_HTnj_LFup = -1.;
+	  btagCSV2DWeight_HTnj_LFdn = -1.;
+	  btagCSV2DWeight_HTnj_jesup = -1.;
+	  btagCSV2DWeight_HTnj_jesdn = -1.;
+	  btagCSV2DWeight_HTnj_hfstats1up = -1.;
+	  btagCSV2DWeight_HTnj_hfstats1dn = -1.;
+	  btagCSV2DWeight_HTnj_hfstats2up = -1.;
+	  btagCSV2DWeight_HTnj_hfstats2dn = -1.;
+	  btagCSV2DWeight_HTnj_cferr1up = -1.;
+	  btagCSV2DWeight_HTnj_cferr1dn = -1.;
+	  btagCSV2DWeight_HTnj_cferr2up = -1.;
+	  btagCSV2DWeight_HTnj_cferr2dn = -1.;
+	  btagCSV2DWeight_HTnj_lfstats1up = -1.;
+	  btagCSV2DWeight_HTnj_lfstats1dn = -1.;
+	  btagCSV2DWeight_HTnj_lfstats2up = -1.;
+	  btagCSV2DWeight_HTnj_lfstats2dn = -1.;
 	   
 	   
     btagDeepJet2DWeight_HTnj = -1.;
@@ -668,24 +672,24 @@ void step2::Loop()
     
     btagCSV2DWeight_HTnj = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"");
 	
-	b_btagCSV2DWeight_HTnj_HFup = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_HFup");
-	b_btagCSV2DWeight_HTnj_HFdn = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_HFdn");
-	b_btagCSV2DWeight_HTnj_LFup = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_LFup");
-	b_btagCSV2DWeight_HTnj_LFdn = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_LFdn");
-	b_btagCSV2DWeight_HTnj_jesup = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_jesup");
-	b_btagCSV2DWeight_HTnj_jesdn = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_jesdn");
-	b_btagCSV2DWeight_HTnj_hfstats1up = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_hfstats1up");
-	b_btagCSV2DWeight_HTnj_hfstats1dn = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_hfstats1dn");
-	b_btagCSV2DWeight_HTnj_hfstats2up = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_hfstats2up");
-	b_btagCSV2DWeight_HTnj_hfstats2dn = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_hfstats2dn");
-	b_btagCSV2DWeight_HTnj_cferr1up = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_cferr1up");
-	b_btagCSV2DWeight_HTnj_cferr1dn = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_cferr1dn");
-	b_btagCSV2DWeight_HTnj_cferr2up = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_cferr2up");
-	b_btagCSV2DWeight_HTnj_cferr2dn = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_cferr2dn");
-	b_btagCSV2DWeight_HTnj_lfstats1up = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_lfstats1up");
-	b_btagCSV2DWeight_HTnj_lfstats1dn = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_lfstats1dn");
-	b_btagCSV2DWeight_HTnj_lfstats2up = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_lfstats2up");
-	b_btagCSV2DWeight_HTnj_lfstats2dn = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_lfstats2dn");
+	  btagCSV2DWeight_HTnj_HFup = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_HFup");
+	  btagCSV2DWeight_HTnj_HFdn = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_HFdn");
+	  btagCSV2DWeight_HTnj_LFup = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_LFup");
+	  btagCSV2DWeight_HTnj_LFdn = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_LFdn");
+	  btagCSV2DWeight_HTnj_jesup = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_jesup");
+	  btagCSV2DWeight_HTnj_jesdn = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_jesdn");
+	  btagCSV2DWeight_HTnj_hfstats1up = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_hfstats1up");
+	  btagCSV2DWeight_HTnj_hfstats1dn = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_hfstats1dn");
+	  btagCSV2DWeight_HTnj_hfstats2up = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_hfstats2up");
+	  btagCSV2DWeight_HTnj_hfstats2dn = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_hfstats2dn");
+	  btagCSV2DWeight_HTnj_cferr1up = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_cferr1up");
+	  btagCSV2DWeight_HTnj_cferr1dn = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_cferr1dn");
+	  btagCSV2DWeight_HTnj_cferr2up = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_cferr2up");
+	  btagCSV2DWeight_HTnj_cferr2dn = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_cferr2dn");
+	  btagCSV2DWeight_HTnj_lfstats1up = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_lfstats1up");
+	  btagCSV2DWeight_HTnj_lfstats1dn = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_lfstats1dn");
+	  btagCSV2DWeight_HTnj_lfstats2up = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_lfstats2up");
+	  btagCSV2DWeight_HTnj_lfstats2dn = hardcodedConditions.GetCSVRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType,"_lfstats2dn");
   //  btagDeepJet2DWeight_HTnj = hardcodedConditions.GetDeepJetRenorm2DSF_HTnj(AK4HT, NJets_JetSubCalc, sampleType); 
 
 
@@ -1709,6 +1713,26 @@ void step2::Loop()
 
 
       b_btagCSV2DWeight_HTnj->Fill();
+
+      b_btagCSV2DWeight_HTnj_HFup->Fill();
+      b_btagCSV2DWeight_HTnj_HFdn->Fill();
+      b_btagCSV2DWeight_HTnj_LFup->Fill();
+      b_btagCSV2DWeight_HTnj_LFdn->Fill();
+      b_btagCSV2DWeight_HTnj_jesup->Fill();
+      b_btagCSV2DWeight_HTnj_jesdn->Fill();
+      b_btagCSV2DWeight_HTnj_hfstats1up->Fill();
+      b_btagCSV2DWeight_HTnj_hfstats1dn->Fill();
+      b_btagCSV2DWeight_HTnj_hfstats2up->Fill();
+      b_btagCSV2DWeight_HTnj_hfstats2dn->Fill();
+      b_btagCSV2DWeight_HTnj_cferr1up->Fill();
+      b_btagCSV2DWeight_HTnj_cferr1dn->Fill();
+      b_btagCSV2DWeight_HTnj_cferr2up->Fill();
+      b_btagCSV2DWeight_HTnj_cferr2dn->Fill();
+      b_btagCSV2DWeight_HTnj_lfstats1up->Fill();
+      b_btagCSV2DWeight_HTnj_lfstats1dn->Fill();
+      b_btagCSV2DWeight_HTnj_lfstats2up->Fill();
+      b_btagCSV2DWeight_HTnj_lfstats2dn->Fill();
+
       b_btagDeepJet2DWeight_HTnj->Fill(); 	  
       b_isTraining->Fill();
       b_xsecEff->Fill();

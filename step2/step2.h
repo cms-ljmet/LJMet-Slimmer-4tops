@@ -28,6 +28,7 @@ public :
 
    //Load Scale Factors
    S2HardcodedConditions hardcodedConditions;
+   TString inputFileName_;
 
 
    // Fixed size dimensions of array or collections stored in the TTree if any.
@@ -55,6 +56,25 @@ public :
 
    Float_t         btagCSV2DWeight_HTnj;
    Float_t         btagDeepJet2DWeight_HTnj;
+
+   Float_t btagCSV2DWeight_HTnj_HFup;
+   Float_t btagCSV2DWeight_HTnj_HFdn;
+   Float_t btagCSV2DWeight_HTnj_LFup;
+   Float_t btagCSV2DWeight_HTnj_LFdn;
+   Float_t btagCSV2DWeight_HTnj_jesup;
+   Float_t btagCSV2DWeight_HTnj_jesdn;
+   Float_t btagCSV2DWeight_HTnj_hfstats1up;
+   Float_t btagCSV2DWeight_HTnj_hfstats1dn;
+   Float_t btagCSV2DWeight_HTnj_hfstats2up;
+   Float_t btagCSV2DWeight_HTnj_hfstats2dn;
+   Float_t btagCSV2DWeight_HTnj_cferr1up;
+   Float_t btagCSV2DWeight_HTnj_cferr1dn;
+   Float_t btagCSV2DWeight_HTnj_cferr2up;
+   Float_t btagCSV2DWeight_HTnj_cferr2dn;
+   Float_t btagCSV2DWeight_HTnj_lfstats1up;
+   Float_t btagCSV2DWeight_HTnj_lfstats1dn;
+   Float_t btagCSV2DWeight_HTnj_lfstats2up;
+   Float_t btagCSV2DWeight_HTnj_lfstats2dn;
 
    Float_t         tmp_minMleppBjet;
    vector<double>  GD_DR_Tridijet;
@@ -728,6 +748,7 @@ step2::step2(TString inputFileName, TString outputFileName)// : inputTree(0), in
 {   //weight branches to be used in the BDT training, xsecEff is the weight
 
    // TT bkg divided into TTToSemiLep, TTToHadronic, TT high mass appear below
+   inputFileName_=inputFileName;
 
    xsecEff = 1.0;
    if (inputFileName.Contains("1lep2016")) {
