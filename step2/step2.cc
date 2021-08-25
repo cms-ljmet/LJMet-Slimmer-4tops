@@ -552,7 +552,7 @@ void step2::Loop()
      nb = inputTree->GetEntry(jentry);   nbytes += nb;
      if (Cut(ientry) != 1) continue;
 
-     if (jentry > 5000 ) break;  // debug
+    // if (jentry > 5000 ) break;  // debug
   //   cout << "\n start event # " << jentry << endl;
      if(jentry % 1000 == 0) std::cout<<"Completed "<<jentry<<" out of "<<nentries<<" events"<<std::endl;      
 

@@ -7,13 +7,11 @@ shift = sys.argv[1]
 
 #IO directories must be full paths
 foldnum = '-1'
-relbase   = '/home/eusai/4t/CMSSW_10_2_16_UL/'
-#inputDir  = '/mnt/hadoop/store/group/bruxljm/FWLJMET102X_1lep2017_Oct2019_4t_032721_step1hadds/'+shift+'/'
+relbase   = '/home/wzhang/work/fwljmet_201905/CMSSW_10_2_16_UL/'
 # inputDir = '/mnt/hadoop/store/group/bruxljm/FWLJMET102X_1lep2018_Oct2019_4t_051321_step1hadds/'+shift+'/'
 # inputDir = '/mnt/hadoop/store/group/bruxljm/FWLJMET102X_1lep2016_Jan2021_4t_051321_step1hadds/'+shift+'/'
 inputDir = '/mnt/hadoop/store/group/bruxljm/FWLJMET102X_1lep2017_Oct2019_4t_051321_step1hadds/'+shift+'/'
-#outputDir = '/mnt/hadoop/store/group/bruxljm/FWLJMET102X_1lep2017_Oct2019_4t_04202021_step2/'+shift+'/'
-outputDir = '/mnt/hadoop/store/group/bruxljm/FWLJMET102X_1lep2017_Oct2019_4t_051321_step2/'+shift+'/'
+outputDir = '/mnt/hadoop/store/group/bruxljm/FWLJMET102X_1lep2017_Oct2019_4t_08242021_step2/'+shift+'/'
 runDir=os.getcwd()
 gROOT.ProcessLine('.x compileStep2.C')
 
@@ -52,7 +50,7 @@ Transfer_Input_Files = %(RUNDIR)s/%(sfFile)s, %(RUNDIR)s/S2HardcodedConditions.c
 Output = %(FILENAME)s.out
 Error = %(FILENAME)s.err
 Log = %(FILENAME)s.log
-JobBatchName = step2_eusai
+JobBatchName = step2_wzhang
 Notification = Never
 Arguments = %(FILENAME)s.root %(FILENAME)s.root %(INPUTDIR)s %(OUTPUTDIR)s
 Queue 1"""%dict)
