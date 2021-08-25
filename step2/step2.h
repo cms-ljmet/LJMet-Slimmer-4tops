@@ -738,7 +738,8 @@ step2::step2(TString inputFileName, TString outputFileName)// : inputTree(0), in
        else if (inputFileName.Contains("TTToHadronic_TuneCP5_PSweights_13TeV-powheg-pythia8")) xsecEff = 0.200599781135;
        else if (inputFileName.Contains("TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8")) xsecEff = 0.0465359763445;
        else if (inputFileName.Contains("TTTT_TuneCP5_PSweights_13TeV-amcatnlo-pythia8_correctnPartonsInBorn")) xsecEff = 0.000120371447621;
-
+       else if (inputFileName.Contains("ttHTobb_M125")) xsecEff = 0.00107768713683;
+       else if (inputFileName.Contains("ttHToNonbb_M125")) xsecEff = 0.000790710347678;
    }
 
    else if (inputFileName.Contains("1lep2017")) {
@@ -749,6 +750,8 @@ step2::step2(TString inputFileName, TString outputFileName)// : inputTree(0), in
        else if (inputFileName.Contains("TTToHadronic_TuneCP5_PSweights_13TeV-powheg-pythia8")) xsecEff = 0.122285168091;
        else if (inputFileName.Contains("TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8")) xsecEff =  0.0529890846128;
        else if (inputFileName.Contains("TTTT_TuneCP5_PSweights_13TeV-amcatnlo-pythia8")) xsecEff = 0.000133269403098;
+       else if (inputFileName.Contains("ttHTobb_M125")) xsecEff = 0.00155543984516;
+       else if (inputFileName.Contains("ttHToNonbb_M125")) xsecEff = 0.00114311367369;
    }
    
    else if (inputFileName.Contains("1lep2018")) {
@@ -759,6 +762,8 @@ step2::step2(TString inputFileName, TString outputFileName)// : inputTree(0), in
        else if (inputFileName.Contains("TTToHadronic_TuneCP5_13TeV-powheg-pythia8")) xsecEff = 0.172212015144; 
        else if (inputFileName.Contains("TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8")) xsecEff = 0.0821029333006; 
        else if (inputFileName.Contains("TTTT_TuneCP5_13TeV-amcatnlo-pythia8")) xsecEff = 0.000160959368294; 
+       else if (inputFileName.Contains("ttHTobb_M125")) xsecEff = 0.0015193714441;
+       else if (inputFileName.Contains("ttHToNonbb_M125")) xsecEff = 0.00175067372769;
    }
 
 //// Samples no longer in use
