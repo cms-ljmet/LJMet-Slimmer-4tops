@@ -10,8 +10,8 @@ S2HardcodedConditions::S2HardcodedConditions() {}
 
 S2HardcodedConditions::S2HardcodedConditions(Int_t Year) {
 
-  TString sfFileName("HT_njets_SF_FourTops_sys.root");
-  TString year_ext("");
+  TString sfFileName("HT_njets_SF_FourTops_sys_Run2017.root");
+  TString year_ext("_2017");
 
   if(Year == 2018) {
     sfFileName = "HT_njets_SF_FourTops_sys_Run2018.root ";
@@ -30,37 +30,37 @@ S2HardcodedConditions::S2HardcodedConditions(Int_t Year) {
   
 std::string SYSs[19] = {"", "_HFup", "_HFdn", "_LFup", "_LFdn", "_jesup", "_jesdn", "_hfstats1up", "_hfstats1dn", "_hfstats2up", "_hfstats2dn", "_cferr1up", "_cferr1dn", "_cferr2up", "_cferr2dn", "_lfstats1up", "_lfstats1dn", "_lfstats2up", "_lfstats2dn"};
 	for(size_t isys = 0; isys<19; isys++){
-  hscale_tttt_dcsv[SYSs[isys]]    = (TH2F*)tfile_HTNJ_SF->Get("hscale_tttt_dcsv"+SYSs[isys]+year_ext)->Clone();
-  hscale_ttjj_dcsv[SYSs[isys]]    = (TH2F*)tfile_HTNJ_SF->Get("hscale_ttjj_dcsv"+SYSs[isys]+year_ext)->Clone();
-  hscale_ttbb_dcsv[SYSs[isys]]    = (TH2F*)tfile_HTNJ_SF->Get("hscale_ttbb_dcsv"+SYSs[isys]+year_ext)->Clone();  
-  hscale_ttcc_dcsv[SYSs[isys]]    = (TH2F*)tfile_HTNJ_SF->Get("hscale_ttcc_dcsv"+SYSs[isys]+year_ext)->Clone();
-  hscale_tt2b_dcsv[SYSs[isys]]    = (TH2F*)tfile_HTNJ_SF->Get("hscale_tt2b_dcsv"+SYSs[isys]+year_ext)->Clone();
-  hscale_tt1b_dcsv[SYSs[isys]]    = (TH2F*)tfile_HTNJ_SF->Get("hscale_tt1b_dcsv"+SYSs[isys]+year_ext)->Clone();
-  hscale_HT500Njet9_ttjj_dcsv[SYSs[isys]]    = (TH2F*)tfile_HTNJ_SF->Get("hscale_HT500Njet9_ttjj_dcsv"+SYSs[isys]+year_ext)->Clone();
-  hscale_HT500Njet9_ttbb_dcsv[SYSs[isys]]    = (TH2F*)tfile_HTNJ_SF->Get("hscale_HT500Njet9_ttbb_dcsv"+SYSs[isys]+year_ext)->Clone();
-  hscale_HT500Njet9_ttcc_dcsv[SYSs[isys]]    = (TH2F*)tfile_HTNJ_SF->Get("hscale_HT500Njet9_ttcc_dcsv"+SYSs[isys]+year_ext)->Clone();
-  hscale_HT500Njet9_tt2b_dcsv[SYSs[isys]]    = (TH2F*)tfile_HTNJ_SF->Get("hscale_HT500Njet9_tt2b_dcsv"+SYSs[isys]+year_ext)->Clone();
-  hscale_HT500Njet9_tt1b_dcsv[SYSs[isys]]    = (TH2F*)tfile_HTNJ_SF->Get("hscale_HT500Njet9_tt1b_dcsv"+SYSs[isys]+year_ext)->Clone();
-  hscale_STs_dcsv[SYSs[isys]]     = (TH2F*)tfile_HTNJ_SF->Get("hscale_STs_dcsv"+SYSs[isys]+year_ext)->Clone();
-  hscale_STtw_dcsv[SYSs[isys]]    = (TH2F*)tfile_HTNJ_SF->Get("hscale_STtw_dcsv"+SYSs[isys]+year_ext)->Clone();
-  hscale_STt_dcsv[SYSs[isys]]     = (TH2F*)tfile_HTNJ_SF->Get("hscale_STt_dcsv"+SYSs[isys]+year_ext)->Clone();
-  hscale_WJets_dcsv[SYSs[isys]]   = (TH2F*)tfile_HTNJ_SF->Get("hscale_WJets_dcsv"+SYSs[isys]+year_ext)->Clone();
+  hscale_tttt_dcsv[SYSs[isys]]    = (TH2F*)tfile_HTNJ_SF->Get("hscale_tttt"+SYSs[isys]+year_ext)->Clone();
+  hscale_ttjj_dcsv[SYSs[isys]]    = (TH2F*)tfile_HTNJ_SF->Get("hscale_ttjj"+SYSs[isys]+year_ext)->Clone();
+  hscale_ttbb_dcsv[SYSs[isys]]    = (TH2F*)tfile_HTNJ_SF->Get("hscale_ttbb"+SYSs[isys]+year_ext)->Clone();  
+  hscale_ttcc_dcsv[SYSs[isys]]    = (TH2F*)tfile_HTNJ_SF->Get("hscale_ttcc"+SYSs[isys]+year_ext)->Clone();
+  hscale_tt2b_dcsv[SYSs[isys]]    = (TH2F*)tfile_HTNJ_SF->Get("hscale_tt2b"+SYSs[isys]+year_ext)->Clone();
+  hscale_tt1b_dcsv[SYSs[isys]]    = (TH2F*)tfile_HTNJ_SF->Get("hscale_tt1b"+SYSs[isys]+year_ext)->Clone();
+  hscale_HT500Njet9_ttjj_dcsv[SYSs[isys]]    = (TH2F*)tfile_HTNJ_SF->Get("hscale_HT500Njet9_ttjj"+SYSs[isys]+year_ext)->Clone();
+  hscale_HT500Njet9_ttbb_dcsv[SYSs[isys]]    = (TH2F*)tfile_HTNJ_SF->Get("hscale_HT500Njet9_ttbb"+SYSs[isys]+year_ext)->Clone();
+  hscale_HT500Njet9_ttcc_dcsv[SYSs[isys]]    = (TH2F*)tfile_HTNJ_SF->Get("hscale_HT500Njet9_ttcc"+SYSs[isys]+year_ext)->Clone();
+  hscale_HT500Njet9_tt2b_dcsv[SYSs[isys]]    = (TH2F*)tfile_HTNJ_SF->Get("hscale_HT500Njet9_tt2b"+SYSs[isys]+year_ext)->Clone();
+  hscale_HT500Njet9_tt1b_dcsv[SYSs[isys]]    = (TH2F*)tfile_HTNJ_SF->Get("hscale_HT500Njet9_tt1b"+SYSs[isys]+year_ext)->Clone();
+  hscale_STs_dcsv[SYSs[isys]]     = (TH2F*)tfile_HTNJ_SF->Get("hscale_STs"+SYSs[isys]+year_ext)->Clone();
+  hscale_STtw_dcsv[SYSs[isys]]    = (TH2F*)tfile_HTNJ_SF->Get("hscale_STtw"+SYSs[isys]+year_ext)->Clone();
+  hscale_STt_dcsv[SYSs[isys]]     = (TH2F*)tfile_HTNJ_SF->Get("hscale_STt"+SYSs[isys]+year_ext)->Clone();
+  hscale_WJets_dcsv[SYSs[isys]]   = (TH2F*)tfile_HTNJ_SF->Get("hscale_WJets"+SYSs[isys]+year_ext)->Clone();
 }
-  hscale_tttt_djet    = (TH2F*)tfile_HTNJ_SF->Get("hscale_tttt_djet"+year_ext)->Clone(); 
-  hscale_ttjj_djet    = (TH2F*)tfile_HTNJ_SF->Get("hscale_ttjj_djet"+year_ext)->Clone();
-  hscale_ttbb_djet    = (TH2F*)tfile_HTNJ_SF->Get("hscale_ttbb_djet"+year_ext)->Clone();
-  hscale_ttcc_djet    = (TH2F*)tfile_HTNJ_SF->Get("hscale_ttcc_djet"+year_ext)->Clone();
-  hscale_tt2b_djet    = (TH2F*)tfile_HTNJ_SF->Get("hscale_tt2b_djet"+year_ext)->Clone();
-  hscale_tt1b_djet    = (TH2F*)tfile_HTNJ_SF->Get("hscale_tt1b_djet"+year_ext)->Clone();
-  hscale_HT500Njet9_ttjj_djet    = (TH2F*)tfile_HTNJ_SF->Get("hscale_HT500Njet9_ttjj_djet"+year_ext)->Clone();
-  hscale_HT500Njet9_ttbb_djet    = (TH2F*)tfile_HTNJ_SF->Get("hscale_HT500Njet9_ttbb_djet"+year_ext)->Clone();
-  hscale_HT500Njet9_ttcc_djet    = (TH2F*)tfile_HTNJ_SF->Get("hscale_HT500Njet9_ttcc_djet"+year_ext)->Clone();
-  hscale_HT500Njet9_tt2b_djet    = (TH2F*)tfile_HTNJ_SF->Get("hscale_HT500Njet9_tt2b_djet"+year_ext)->Clone();
-  hscale_HT500Njet9_tt1b_djet    = (TH2F*)tfile_HTNJ_SF->Get("hscale_HT500Njet9_tt1b_djet"+year_ext)->Clone();
-  hscale_STs_djet     = (TH2F*)tfile_HTNJ_SF->Get("hscale_STs_djet"+year_ext)->Clone();
-  hscale_STtw_djet    = (TH2F*)tfile_HTNJ_SF->Get("hscale_STtw_djet"+year_ext)->Clone();
-  hscale_STt_djet     = (TH2F*)tfile_HTNJ_SF->Get("hscale_STt_djet"+year_ext)->Clone();
-  hscale_WJets_djet   = (TH2F*)tfile_HTNJ_SF->Get("hscale_WJets_djet"+year_ext)->Clone();
+  // hscale_tttt_djet    = (TH2F*)tfile_HTNJ_SF->Get("hscale_tttt_djet"+year_ext)->Clone(); 
+  // hscale_ttjj_djet    = (TH2F*)tfile_HTNJ_SF->Get("hscale_ttjj_djet"+year_ext)->Clone();
+  // hscale_ttbb_djet    = (TH2F*)tfile_HTNJ_SF->Get("hscale_ttbb_djet"+year_ext)->Clone();
+  // hscale_ttcc_djet    = (TH2F*)tfile_HTNJ_SF->Get("hscale_ttcc_djet"+year_ext)->Clone();
+  // hscale_tt2b_djet    = (TH2F*)tfile_HTNJ_SF->Get("hscale_tt2b_djet"+year_ext)->Clone();
+  // hscale_tt1b_djet    = (TH2F*)tfile_HTNJ_SF->Get("hscale_tt1b_djet"+year_ext)->Clone();
+  // hscale_HT500Njet9_ttjj_djet    = (TH2F*)tfile_HTNJ_SF->Get("hscale_HT500Njet9_ttjj_djet"+year_ext)->Clone();
+  // hscale_HT500Njet9_ttbb_djet    = (TH2F*)tfile_HTNJ_SF->Get("hscale_HT500Njet9_ttbb_djet"+year_ext)->Clone();
+  // hscale_HT500Njet9_ttcc_djet    = (TH2F*)tfile_HTNJ_SF->Get("hscale_HT500Njet9_ttcc_djet"+year_ext)->Clone();
+  // hscale_HT500Njet9_tt2b_djet    = (TH2F*)tfile_HTNJ_SF->Get("hscale_HT500Njet9_tt2b_djet"+year_ext)->Clone();
+  // hscale_HT500Njet9_tt1b_djet    = (TH2F*)tfile_HTNJ_SF->Get("hscale_HT500Njet9_tt1b_djet"+year_ext)->Clone();
+  // hscale_STs_djet     = (TH2F*)tfile_HTNJ_SF->Get("hscale_STs_djet"+year_ext)->Clone();
+  // hscale_STtw_djet    = (TH2F*)tfile_HTNJ_SF->Get("hscale_STtw_djet"+year_ext)->Clone();
+  // hscale_STt_djet     = (TH2F*)tfile_HTNJ_SF->Get("hscale_STt_djet"+year_ext)->Clone();
+  // hscale_WJets_djet   = (TH2F*)tfile_HTNJ_SF->Get("hscale_WJets_djet"+year_ext)->Clone();
 
 }
 
