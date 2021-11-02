@@ -761,6 +761,10 @@ step2::step2(TString inputFileName, TString outputFileName)// : inputTree(0), in
        else if (inputFileName.Contains("TTTT_TuneCP5_PSweights_13TeV-amcatnlo-pythia8_correctnPartonsInBorn")) xsecEff = 0.000120371447621;
        else if (inputFileName.Contains("ttHTobb_M125")) xsecEff = 0.00107768713683;
        else if (inputFileName.Contains("ttHToNonbb_M125")) xsecEff = 0.000790710347678;
+       else if (inputFileName.Contains("TTbb_4f_TTTo2l2nu_TuneCP5-Powheg")) xsecEff = 0.0420426269796;
+       else if (inputFileName.Contains("TTbb_4f_TTToHadronic_TuneCP5-Powheg")) xsecEff = 0.107983639424;
+       else if (inputFileName.Contains("TTbb_4f_TTToSemiLeptonic_TuneCP5-Powheg")) xsecEff = 0.102334790079;
+
    }
 
    else if (inputFileName.Contains("1lep2017")) {
@@ -773,6 +777,10 @@ step2::step2(TString inputFileName, TString outputFileName)// : inputTree(0), in
        else if (inputFileName.Contains("TTTT_TuneCP5_PSweights_13TeV-amcatnlo-pythia8")) xsecEff = 0.000133269403098;
        else if (inputFileName.Contains("ttHTobb_M125")) xsecEff = 0.00155543984516;
        else if (inputFileName.Contains("ttHToNonbb_M125")) xsecEff = 0.00114311367369;
+       else if (inputFileName.Contains("TTbb_4f_TTTo2l2nu_TuneCP5-Powheg")) xsecEff = 0.0481723691481;
+       else if (inputFileName.Contains("TTbb_4f_TTToHadronic_TuneCP5-Powheg")) xsecEff = 0.112998420402;
+       else if (inputFileName.Contains("TTbb_4f_TTToSemiLeptonic_TuneCP5-Powheg")) xsecEff = 0.12967665614;
+
    }
    
    else if (inputFileName.Contains("1lep2018")) {
@@ -785,6 +793,10 @@ step2::step2(TString inputFileName, TString outputFileName)// : inputTree(0), in
        else if (inputFileName.Contains("TTTT_TuneCP5_13TeV-amcatnlo-pythia8")) xsecEff = 0.000160959368294; 
        else if (inputFileName.Contains("ttHTobb_M125")) xsecEff = 0.0015193714441;
        else if (inputFileName.Contains("ttHToNonbb_M125")) xsecEff = 0.00175067372769;
+       else if (inputFileName.Contains("TTbb_4f_TTTo2l2nu_TuneCP5-Powheg")) xsecEff = 0.0717431908245;
+       else if (inputFileName.Contains("TTbb_4f_TTToHadronic_TuneCP5-Powheg")) xsecEff = 0.189421568148;
+       else if (inputFileName.Contains("TTbb_4f_TTToSemiLeptonic_TuneCP5-Powheg")) xsecEff = 0.173355410817;
+
    }
 
 //// Samples no longer in use
