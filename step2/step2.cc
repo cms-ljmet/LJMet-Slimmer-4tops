@@ -334,8 +334,16 @@ void step2::Loop()
    TBranch *b_fourthdeepjetb        = outputTree->Branch("fourthdeepjetb",&fourthdeepjetb,"fourthdeepjetb/F");
 
    TBranch *b_secondJetPt           = outputTree->Branch("secondJetPt",&secondJetPt,"secondJetPt/F");        
+   TBranch *b_thirdJetPt            = outputTree->Branch("thirdJetPt",&thirdJetPt,"thirdJetPt/F");
+   TBranch *b_fourthJetPt           = outputTree->Branch("fourthJetPt",&fourthJetPt,"fourthJetPt/F");
    TBranch *b_fifthJetPt            = outputTree->Branch("fifthJetPt",&fifthJetPt,"fifthJetPt/F");        
    TBranch *b_sixthJetPt            = outputTree->Branch("sixthJetPt",&sixthJetPt,"sixthJetPt/F");
+
+   TBranch *b_secondJetEta           = outputTree->Branch("secondJetEta",&secondJetEta,"secondJetEta/F");
+   TBranch *b_thirdJetEta            = outputTree->Branch("thirdJetEta",&thirdJetEta,"thirdJetEta/F");
+   TBranch *b_fourthJetEta           = outputTree->Branch("fourthJetEta",&fourthJetEta,"fourthJetEta/F");
+   TBranch *b_fifthJetEta            = outputTree->Branch("fifthJetEta",&fifthJetEta,"fifthJetEta/F");
+   TBranch *b_sixthJetEta            = outputTree->Branch("sixthJetEta",&sixthJetEta,"sixthJetEta/F");
 
    TBranch *b_csvJet1               = outputTree->Branch("csvJet1",&csvJet1,"csvJet1/F");
    TBranch *b_csvJet2               = outputTree->Branch("csvJet2",&csvJet2,"csvJet2/F");
@@ -370,6 +378,7 @@ void step2::Loop()
    TBranch *b_mass_maxBBpt          = outputTree->Branch("mass_maxBBpt",&mass_maxBBpt,"mass_maxBBpt/F");
    TBranch *b_mass_maxBBmass        = outputTree->Branch("mass_maxBBmass",&mass_maxBBmass,"mass_maxBBmass/F");
    TBranch *b_theJetLeadPt          = outputTree->Branch("theJetLeadPt",&theJetLeadPt,"theJetLeadPt/F");
+   TBranch *b_theJetLeadEta         = outputTree->Branch("theJetLeadEta",&theJetLeadEta,"theJetLeadEta/F");
    TBranch *b_deltaR_lepBJets0      = outputTree->Branch("deltaR_lepBJets0",&deltaR_lepBJets0,"deltaR_lepBJets0/F");
    TBranch *b_deltaR_lepBJets1      = outputTree->Branch("deltaR_lepBJets1",&deltaR_lepBJets1,"deltaR_lepBJets1/F");   
    TBranch *b_minDR_lepBJet         = outputTree->Branch("minDR_lepBJet",&minDR_lepBJet,"minDR_lepBJet/F");
@@ -604,6 +613,7 @@ void step2::Loop()
      HT_ratio = -1; //for ratio of HT(j1,2,3,4)/HT(other jets)     
      HT_2m = -10;
      theJetLeadPt = -1000; 
+     theJetLeadEta = -10.;
      mass_lepJets0 = -1;             
      mass_lepJets1 = -1;                          
      mass_lepJets2 = -1;  
@@ -710,7 +720,8 @@ void step2::Loop()
 
      corr_met = (float) corr_met_MultiLepCalc;
      theJetLeadPt = theJetPt_JetSubCalc_PtOrdered->at(0);
-     
+     theJetLeadEta = theJetEta_JetSubCalc_PtOrdered->at(0);
+ 
      double maxBBdphi = 0;
      double maxBBpt = 0; 
      double maxLBpt = 0; 
@@ -773,8 +784,15 @@ void step2::Loop()
      invM_jet46 = -10;                    
      invM_jet56 = -10;                         
      secondJetPt = -1;
+     thirdJetPt = -1;
+     fourthJetPt = -1;
      fifthJetPt = -1;
      sixthJetPt = -1;
+     secondJetEta = -10;
+     thirdJetEta = -10;
+     fourthJetEta = -10;
+     fifthJetEta = -10;
+     sixthJetEta = -10;
      
      float totalPtCSV = 0;
      double deltaPhifromMET_ = TVector2::Phi_mpi_pi(leptonPhi_MultiLepCalc - corr_met_phi_MultiLepCalc);
@@ -839,12 +857,23 @@ void step2::Loop()
 
 	if (ijet==1){
             secondJetPt = theJetPt_JetSubCalc_PtOrdered->at(ijet);
+            secondJetEta = theJetEta_JetSubCalc_PtOrdered->at(ijet);
+        }
+    if (ijet==2){
+            thirdJetPt = theJetPt_JetSubCalc_PtOrdered->at(ijet);
+            thirdJetEta = theJetEta_JetSubCalc_PtOrdered->at(ijet);
+        }
+    if (ijet==3){
+            fourthJetPt = theJetPt_JetSubCalc_PtOrdered->at(ijet);
+            fourthJetEta = theJetEta_JetSubCalc_PtOrdered->at(ijet);
         }
 	if (ijet==4){        
             fifthJetPt = theJetPt_JetSubCalc_PtOrdered->at(ijet);
+            fifthJetEta = theJetEta_JetSubCalc_PtOrdered->at(ijet);
         }
-       	if (ijet==5){
+    if (ijet==5){
             sixthJetPt = theJetPt_JetSubCalc_PtOrdered->at(ijet);
+            sixthJetEta = theJetEta_JetSubCalc_PtOrdered->at(ijet);
         }
         		
         TLorentzVector jetTmp, bjetTmp;   		
@@ -1769,6 +1798,7 @@ void step2::Loop()
       b_mass_maxBBpt->Fill();
       b_mass_maxBBmass->Fill();
       b_theJetLeadPt->Fill();
+      b_theJetLeadEta->Fill();
       b_deltaR_lepBJets0->Fill();
       b_deltaR_lepBJets1->Fill();	  
       b_minDR_lepBJet->Fill();
@@ -1844,8 +1874,15 @@ void step2::Loop()
       b_is_genMissingDaughter->Fill();
       b_is_genFourTopsOnelepton->Fill();      
       b_secondJetPt->Fill(); 
+      b_thirdJetPt->Fill();
+      b_fourthJetPt->Fill();
       b_fifthJetPt->Fill(); 
       b_sixthJetPt->Fill(); 
+      b_secondJetEta->Fill();
+      b_thirdJetEta->Fill();
+      b_fourthJetEta->Fill();
+      b_fifthJetEta->Fill();
+      b_sixthJetEta->Fill();
       b_hemiout->Fill();
 
       b_BDTtrijet2->Fill();	     
