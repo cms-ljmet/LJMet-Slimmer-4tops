@@ -8,10 +8,9 @@ shift = sys.argv[1]
 #IO directories must be full paths
 foldnum = '-1'
 relbase   = '/home/wzhang/work/fwljmet_201905/CMSSW_10_2_16_UL/'
-# inputDir = '/mnt/hadoop/store/group/bruxljm/FWLJMET102X_1lep2018_Oct2019_4t_051321_step1hadds/'+shift+'/'
-# inputDir = '/mnt/hadoop/store/group/bruxljm/FWLJMET102X_1lep2016_Jan2021_4t_051321_step1hadds/'+shift+'/'
-inputDir = '/mnt/hadoop/store/group/bruxljm/FWLJMET102X_1lep2017_Oct2019_4t_051321_step1hadds/'+shift+'/'
-outputDir = '/mnt/hadoop/store/group/bruxljm/FWLJMET102X_1lep2017_Oct2019_4t_08242021_step2/'+shift+'/'
+inputDir = '/isilon/hadoop/store/group/bruxljm/FWLJMET102X_1lep2018_Oct2019_4t_redJECs_040922_step1hadds/'+shift+'/'
+#inputDir = '/isilon/hadoop/store/group/bruxljm/FWLJMET102X_1lep2016_Jan2021_4t_redJECs_040922_step1hadds/'+shift+'/'
+outputDir = '/isilon/hadoop/store/group/bruxljm/FWLJMET102X_1lep2018_Oct2019_4t_redJECs_05202022_step2/'+shift+'/'
 runDir=os.getcwd()
 gROOT.ProcessLine('.x compileStep2.C')
 
@@ -33,6 +32,7 @@ os.system('mkdir -p '+outputDir)
 os.system('mkdir -p '+condorDir)
 
 for file in rootfiles:
+#    if 'hdamp' in file: continue 
     if 'root' not in file: continue
     rawname = file[:-6]
     count+=1
