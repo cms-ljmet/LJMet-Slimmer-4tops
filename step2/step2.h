@@ -149,8 +149,15 @@ public :
    Float_t         Sphericity;
    Float_t         Aplanarity;
    Float_t         secondJetPt;
+   Float_t         thirdJetPt;
+   Float_t         fourthJetPt;
    Float_t         fifthJetPt;
-   Float_t         sixthJetPt;     
+   Float_t         sixthJetPt; 
+   Float_t         secondJetEta;
+   Float_t         thirdJetEta;
+   Float_t         fourthJetEta;
+   Float_t         fifthJetEta;
+   Float_t         sixthJetEta;    
    Float_t         deltaR_lepbJetNotInMinMlb;
    vector<double>  GD_DCSV_jetNotdijet;
    vector<double>  BD_DCSV_jetNotdijet;   
@@ -160,6 +167,7 @@ public :
    Float_t         mass_maxBBpt;
    Float_t         mass_maxBBmass;
    Float_t         theJetLeadPt;
+   Float_t         theJetLeadEta;
    Float_t         mass_lepJets0;
    Float_t         mass_lepJets1;
    Float_t         mass_lepJets2;
